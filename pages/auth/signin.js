@@ -1,6 +1,6 @@
 import {getProviders, signIn as SignIntoProvider } from "next-auth/react";
 import Header from "../../components/Header";
-import Image from "next/image";
+import Image from "next/future/image";
 //Brower...
 function signIn({providers}){
     return (

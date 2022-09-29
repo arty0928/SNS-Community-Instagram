@@ -1,5 +1,5 @@
 import {signOut, useSession } from "next-auth/react";
-
+import Image from "next/future/image";
 function MiniProfile(){
     const { data: session } = useSession();
 
@@ -7,7 +7,11 @@ function MiniProfile(){
 
     return (
         <div className="flex items-center justify-between mt-14 ml-10">
-            <img className="w-16 h-16 rounded-full border p-[2px]" src={session?.user?.image} alt=""/>
+            <Image className="w-16 h-16 rounded-full border p-[2px]" 
+            src={session?.user?.image} 
+            alt=""
+            width={30}
+            height={30}/>
 
             <div className="flex-1 mx-4">
                 <h2 className="font-bold">{session?.user?.username}</h2>

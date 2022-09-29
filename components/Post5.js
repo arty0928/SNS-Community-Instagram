@@ -15,6 +15,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import Moment from "react-moment";
+import Image from "next/future/image";
 
 function Post5({ id, username, userImg, img, caption }) {
 
@@ -122,17 +123,21 @@ function Post5({ id, username, userImg, img, caption }) {
 
             {/* {Header} */}
             <div className="flex items-center p-5 ">
-                <img
+                <Image
                     src={userImg}
-                    className="rounded-full h-12 w-12 object-contain border p-1 mr-3"
+                    className=" rounded-full h-12 w-12 object-contain border p-1 mr-3"
                     alt=""
+                    width={42}
+                    height={42}
                 />
-                <p className="flex-1 font-bold">{username}</p>
+                <p className="ml-5 flex-1 font-bold">{username}</p>
                 <DotsHorizontalIcon className="h-5" />
             </div>
 
             {/* img */}
-            <img src={img} className="object-cover w-full" alt="" />
+            <Image src={img} className="object-cover w-full" alt=""
+                width={800}
+                height={800} />
 
             {/* btns */}
             {session && (
@@ -161,7 +166,7 @@ function Post5({ id, username, userImg, img, caption }) {
 
 
             {/* caption */}
-            <p className="p-5 truncate">
+            <p className="p-5">
                 {likes.length > 0 && (
                     <p className="font-bold mb-2 text-red-500 ">{likes.length} likes </p>
                 )}
@@ -177,10 +182,12 @@ function Post5({ id, username, userImg, img, caption }) {
                 <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin">
                     {comments.map(comment => (
                         <div key={comment.id} className='flex items-center space-x-2 mb-3'>
-                            <img
+                            <Image
                                 className="h-7 rounded-full"
                                 src={comment.data().userImage}
                                 alt=""
+                                width={30}
+                                height={30}
                             />
                             <p className="text-sm flex-1">
                                 <span className="font-bold">

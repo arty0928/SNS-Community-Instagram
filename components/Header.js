@@ -99,7 +99,7 @@
 
 // export default Header
 
-import Image from "next/image"
+
 import {
     SearchIcon,
     PlusCircleIcon,
@@ -110,6 +110,7 @@ import {
 } from "@heroicons/react/outline";
 import { HomeIcon } from "@heroicons/react/solid";
 import Home from "../pages";
+import Image from "next/future/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -128,10 +129,11 @@ function Header() {
                 {/* Left */}
                 <div onClick={() => router.push('/')} className="relative lg:inline-gird w-32 h-11 mt-3 cursor-pointer">
 
-                    <img
+                    <Image
                         src="/img/스쿼드 로고.png"
                         alt="logo"
-                        layout="fill"
+                        width={100}
+                        height={100}
                         objectFit="contain"
                     />
                 </div>
@@ -172,12 +174,16 @@ function Header() {
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
 
-                            <img
+                            <Image
                                 onClick={signOut}
                                 src={session.user.image}
+                                
                                 alt="profile pic"
                                 className="h-10 rounded-full 
-                        cursor-pointer"
+                                cursor-pointer"
+                                width={43}
+                                height={43}
+                                
                             />
                         </>
                     ) : (

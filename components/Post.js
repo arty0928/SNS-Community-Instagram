@@ -1,4 +1,4 @@
-import{
+import {
     BookmarkIcon,
     ChatIcon,
     DotsHorizontalIcon,
@@ -6,19 +6,20 @@ import{
     HeartIcon,
     PaperAirplaneIcon,
     ThumbUpIcon,
-}from "@heroicons/react/outline"
-import {HeartIcon as HeartIconFilled } from "@heroicons/react/solid"
+} from "@heroicons/react/outline"
+import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid"
 import { ThumbUpIcon as ThumbUpIconFilled } from "@heroicons/react/solid"
 
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc } from "firebase/firestore";
-import {useSession} from "next-auth/react";
-import {useEffect, useState} from "react";
-import {db} from "../firebase";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { db } from "../firebase";
 import Moment from "react-moment";
+import Image from "next/future/image";
 
-function Post( {id, username, userImg, img, caption} ){
+function Post({ id, username, userImg, img, caption }) {
 
-    const {data:session} = useSession();
+    const { data: session } = useSession();
     const [comment, setComment] = useState("");
     const [comments, setComments] = useState([]);
     const [likes, setLikes] = useState([]);
@@ -29,31 +30,31 @@ function Post( {id, username, userImg, img, caption} ){
     const [hasThumsUp, setHasThumsUp] = useState(false);
 
     useEffect(
-        ()=> 
+        () =>
             onSnapshot(
                 query(
-                    collection(db,'posts',id,'comments'), 
-                    orderBy('timestamp','desc')
-                    ),
-                    snapshot=> setComments(snapshot.docs)
-                ), 
-            [db]
-        );
+                    collection(db, 'posts', id, 'comments'),
+                    orderBy('timestamp', 'desc')
+                ),
+                snapshot => setComments(snapshot.docs)
+            ),
+        [db]
+    );
 
     console.log(hasLiked);
-    
+
 
     //Likes
     useEffect(
-        ()=> 
-            onSnapshot(collection(db,'posts',id,'likes'), (snapshot) => 
+        () =>
+            onSnapshot(collection(db, 'posts', id, 'likes'), (snapshot) =>
                 setLikes(snapshot.docs)
-            ), 
-        [db,id]
+            ),
+        [db, id]
     );
 
     useEffect(
-        () => 
+        () =>
             setHasLiked(
                 likes.findIndex((like) => like.id === session?.user?.uid) !== -1
             ),
@@ -62,16 +63,16 @@ function Post( {id, username, userImg, img, caption} ){
 
 
     const likePost = async () => {
-        if(hasLiked) {
-            await deleteDoc(doc(db,'posts',id,'likes',session.user.uid))
+        if (hasLiked) {
+            await deleteDoc(doc(db, 'posts', id, 'likes', session.user.uid))
         }
         else {
             await setDoc(doc(db, 'posts', id, 'likes', session.user.uid), {
                 username: session.user.username
             });
-        }   
+        }
     };
-    
+
 
     //좋아요, 엄지척
     useEffect(
@@ -109,8 +110,8 @@ function Post( {id, username, userImg, img, caption} ){
         const commentToSend = comment;
         setComment("");
 
-        await addDoc(collection(db, 'posts', id, 'comments'),{
-            comment:commentToSend,
+        await addDoc(collection(db, 'posts', id, 'comments'), {
+            comment: commentToSend,
             username: session.user.username,
             userImage: session.user.image,
             timestamp: serverTimestamp(),
@@ -122,17 +123,21 @@ function Post( {id, username, userImg, img, caption} ){
 
             {/* {Header} */}
             <div className="flex items-center p-5 ">
-                <img 
+                <Image
                     src={userImg}
-                    className="rounded-full h-12 w-12 object-contain border p-1 mr-3" 
+                    className=" rounded-full h-12 w-12 object-contain border p-1 mr-3"
                     alt=""
+                    width={42}
+                    height={42}
                 />
-                <p className="flex-1 font-bold">{username}</p>
-                <DotsHorizontalIcon className="h-5"/>
+                <p className="ml-5 flex-1 font-bold">{username}</p>
+                <DotsHorizontalIcon className="h-5" />
             </div>
 
             {/* img */}
-            <img src={img} className="object-cover w-full" alt= ""/>
+            <Image src={img} className="object-cover w-full" alt=""
+                width={800}
+                height={800} />
 
             {/* btns */}
             {session && (
@@ -140,51 +145,53 @@ function Post( {id, username, userImg, img, caption} ){
                     <div className="flex space-x-4">
                         {
                             hasLiked ? (
-                                <HeartIconFilled onClick={likePost} className="btn text-red-500"/>
+                                <HeartIconFilled onClick={likePost} className="btn text-red-500" />
                             ) : (
-                                <HeartIcon onClick={likePost} className="btn" />   
-                        )}
-                        
+                                <HeartIcon onClick={likePost} className="btn" />
+                            )}
+
                         <ChatIcon className="btn" />
                         <PaperAirplaneIcon className="btn" />
-                        
+
                     </div>
 
                     {
-                            hasThumsUp ? (
-                                <ThumbUpIconFilled onClick={ThumsUpPost} className="btn text-blue-500" />
-                            ) : (
-                                    <ThumbUpIcon onClick={ThumsUpPost} className="btn" />
-                            )}
+                        hasThumsUp ? (
+                            <ThumbUpIconFilled onClick={ThumsUpPost} className="btn text-blue-500" />
+                        ) : (
+                            <ThumbUpIcon onClick={ThumsUpPost} className="btn" />
+                        )}
                 </div>
             )}
-                
+
 
             {/* caption */}
-                <p className="p-5">
-                    {likes.length > 0 && (
-                        <p className="font-bold mb-2 text-red-500 ">{likes.length} likes </p>
-                    )}
-                    {/* <span className="font-bold mr-1">
+            <p className="p-5">
+                {likes.length > 0 && (
+                    <p className="font-bold mb-2 text-red-500 ">{likes.length} likes </p>
+                )}
+                {/* <span className="font-bold mr-1">
                     {username} 
                     </span> */}
-                    {caption}
-                </p>
-            
-            
+                {caption}
+            </p>
+
+
             {/* comments */}
             {comments.length > 0 && (
                 <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin">
                     {comments.map(comment => (
                         <div key={comment.id} className='flex items-center space-x-2 mb-3'>
-                            <img 
-                                className="h-7 rounded-full" 
-                                src={comment.data().userImage} 
-                                alt="" 
+                            <Image
+                                className="rounded-full"
+                                src={comment.data().userImage}
+                                alt=""
+                                width={30}
+                                height={30}
                             />
                             <p className="text-sm flex-1">
                                 <span className="font-bold">
-                                {comment.data().username}
+                                    {comment.data().username}
                                 </span>{" "}
                                 {comment.data().comment}
                             </p>
@@ -200,22 +207,22 @@ function Post( {id, username, userImg, img, caption} ){
             {session && (
                 <form className="flex items-center p-4">
                     <EmojiHappyIcon className="h-7 mr-3" />
-                    <input 
+                    <input
                         type="text"
                         value={comment}
                         onChange={e => setComment(e.target.value)}
                         placeholder="Add a comment..."
                         className="bg-blue-50 border-none flex-1 focus:ring-0 online-none rounded"
                     />
-                    <button 
-                        type='submit' 
-                        disabled = {!comment.trim()} 
+                    <button
+                        type='submit'
+                        disabled={!comment.trim()}
                         onClick={sendComment}
                         className="font-semibold text-blue-400 ml-4">Post</button>
                 </form>
             )}
-            
-    </div>
+
+        </div>
     );
 }
 

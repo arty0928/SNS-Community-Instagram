@@ -8,7 +8,9 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['localhost', 'images.unsplash.com', 'googleusercontent.com','lh3.googleusercontent.com',
+      'firebasestorage.googleapis.com', 'googleapis.com','cloudflare-ipfs.com']
+    
   },
   
   mode: 'jit',

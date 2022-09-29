@@ -13,7 +13,7 @@ import {
 } from "@firebase/firestore";
 import { useSession } from "next-auth/react";
 import { ref, getDownloadURL, uploadString } from "@firebase/storage";
-
+import Image from "next/future/image";
 function Modal2() {
 
     const { data: session } = useSession();
@@ -120,11 +120,13 @@ function Modal2() {
                             <div>
 
                                 {selectedFile ? (
-                                    <img
+                                    <Image
                                         src={selectedFile}
                                         className="w-full object-contain cursor-pointer"
                                         onClick={() => setSelectedFile(null)}
                                         alt=""
+                                        width={600}
+                                        height={600}
                                     />
 
                                 ) : (
