@@ -30,7 +30,9 @@ function signIn({providers}){
 //Server side 
 //export async function getServerSidedProps
 export async function getStaticProps() {
-    const providers = await getProviders();
+    //const providers = await getProviders();
+    const res = await fetch("https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=1014084817011-11ilrhr1560lf3nhsv1uc3mvkj3sig13.apps.googleusercontent.com&scope=openid%20email%20profile&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback%2Fgoogle&state=Ou1_Yzwxd5BWt2pbkbmq6hKJr7iuWXQyyxEBLihQ3bU&code_challenge=IZuA9x_Qnp-mZp9nk4SKtKSMG-w9wjLZAE4WhU8kLAE&code_challenge_method=S256&flowName=GeneralOAuthFlow");
+    const providers = await res.json();
 
     return {
         props: {
