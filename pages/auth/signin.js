@@ -28,16 +28,18 @@ function signIn({providers}){
 }
 
 //Server side 
-//export async function getServerSidedProps()
-export async function getServerSideProps() {
+//export async function getServerSidedProps
+export async function getServerSideProps({ req, res }) {
+    res.setHeader(
+        'Cache-Control',
+        'public, s-maxage=10, stale-while-revalidate=59'
+    )
+    
     const providers = await getProviders();
-
-    const res = await fetch(providers);
-    const data = await res.json();
 
     return {
         props: {
-            data,
+            providers,
         },
     };
 
