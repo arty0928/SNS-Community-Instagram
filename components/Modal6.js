@@ -120,7 +120,7 @@ function Modal6() {
                             <div>
 
                                 {selectedFile ? (
-                                    <img
+                                    <Image
                                         src={selectedFile}
                                         className="w-full object-contain cursor-pointer"
                                         onClick={() => setSelectedFile(null)}

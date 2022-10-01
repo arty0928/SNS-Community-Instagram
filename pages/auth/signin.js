@@ -8,7 +8,7 @@ function signIn({providers}){
         <Header />
 
         <div className="flex flex-col items-center min-h-screen py-2 mt-56 text-center">
-            <img className="w-80" src="/img/스쿼드 로고.png" alt="" width={400} height={200}/>
+            <Image className="w-80" src="/img/스쿼드 로고.png" alt="" width={400} height={200}/>
 
             <p className="font-xs italic">
                 SQUARD PROJECT - By EunSeo PARK  
