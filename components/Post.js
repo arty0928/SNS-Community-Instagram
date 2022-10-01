@@ -126,7 +126,7 @@ function Post({ id, username, userImg, img, caption }) {
 
             {/* {Header} */}
             <div className="flex items-center p-5 ">
-                <Image
+                <img
                     src={userImg}
                     className=" rounded-full h-12 w-12 object-contain border p-1 mr-3"
                     alt=""
@@ -138,7 +138,7 @@ function Post({ id, username, userImg, img, caption }) {
             </div>
 
             {/* img */}
-            <Image src={img} className="object-cover w-full" alt=""
+            <img src={img} className="object-cover w-full" alt=""
                 width={800}
                 height={800} />
 
@@ -185,7 +185,7 @@ function Post({ id, username, userImg, img, caption }) {
                 <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-black scrollbar-thin">
                     {comments.map(comment => (
                         <div key={comment.id} className='flex items-center space-x-2 mb-3'>
-                            <Image
+                            <img
                                 className="rounded-full"
                                 src={comment.data().userImage}
                                 alt=""
