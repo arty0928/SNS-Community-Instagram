@@ -29,12 +29,7 @@ function signIn({providers}){
 
 //Server side 
 //export async function getServerSidedProps
-export async function getServerSideProps({ req, res }) {
-    res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=10, stale-while-revalidate=59'
-    )
-    
+export async function getStaticProps() {
     const providers = await getProviders();
 
     return {
