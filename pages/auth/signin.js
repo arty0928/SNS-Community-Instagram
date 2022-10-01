@@ -1,7 +1,6 @@
 import {getProviders, signIn as SignIntoProvider } from "next-auth/react";
 import Header from "../../components/Header";
 import Image from "next/future/image";
-import { async } from "@firebase/util";
 //Brower...
 function signIn({providers}){
     return (
@@ -29,9 +28,8 @@ function signIn({providers}){
 }
 
 //Server side 
-//export async function getServerSideProps() {
-export async function getInitialProps(){    
-const providers = await getProviders();
+export async function getStaticProps() {
+    const providers = await getProviders();
 
     return {
         props: {
