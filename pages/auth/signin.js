@@ -28,15 +28,15 @@ function signIn({providers}){
 }
 
 //Server side 
-export async function getStaticProps() {
-    const providers = await getProviders();
+// export async function getServerSideProps() {
+//     const providers = await getProviders();
 
-    return {
-        props: {
-            providers,
-        },
-    };
+//     return {
+//         props: {
+//             providers,
+//         },
+//     };
 
-}
+// }
 
 export default signIn;
