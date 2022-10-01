@@ -29,12 +29,15 @@ function signIn({providers}){
 
 //Server side 
 //export async function getServerSidedProps()
-export async function getInitialProps() {
+export async function getServerSideProps() {
     const providers = await getProviders();
+
+    const res = await fetch(providers);
+    const data = await res.json();
 
     return {
         props: {
-            providers,
+            data,
         },
     };
 
