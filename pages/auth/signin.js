@@ -29,15 +29,24 @@ function signIn({providers}){
 
 //Server side 
 //export async function getServerSidedProps
-// export async function getServerSideProps() {
-//     const providers = await getProviders();
+export async function getServerSideProps() {
+    const providers = await getProviders();
 
-//     return {
-//         props: {
-//             providers,
-//         },
-//     };
+    if (!providers) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
 
-// }
+    return {
+        props: {
+            providers,
+        },
+    };
+
+}
 
 export default signIn;
