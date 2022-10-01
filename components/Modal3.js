@@ -13,7 +13,7 @@ import {
 } from "@firebase/firestore";
 import { useSession } from "next-auth/react";
 import { ref, getDownloadURL, uploadString } from "@firebase/storage";
-import Image from "next/image";
+import Image from "next/future/image";
 function Modal3() {
 
     const { data: session } = useSession();
