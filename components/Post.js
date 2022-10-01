@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
     BookmarkIcon,
     ChatIcon,
@@ -38,6 +39,7 @@ function Post({ id, username, userImg, img, caption }) {
                 ),
                 snapshot => setComments(snapshot.docs)
             ),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [db]
     );
 
@@ -50,6 +52,7 @@ function Post({ id, username, userImg, img, caption }) {
             onSnapshot(collection(db, 'posts', id, 'likes'), (snapshot) =>
                 setLikes(snapshot.docs)
             ),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [db, id]
     );
 
