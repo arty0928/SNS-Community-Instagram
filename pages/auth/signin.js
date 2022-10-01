@@ -29,7 +29,7 @@ function signIn({providers}){
 
 //Server side 
 //export async function getServerSidedProps
-export async function getServerSideProps() {
+export async function getInitialProps() {
     const providers = await getProviders();
 
     return {
