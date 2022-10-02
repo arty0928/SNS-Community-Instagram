@@ -1,29 +1,7 @@
 import {getProviders, signIn as SignIntoProvider } from "next-auth/react";
-import { GetServerSideProps } from 'next';
 import Header from "../../components/Header";
 import Image from "next/future/image";
 //Brower...
-
-export async function getStaticProps() {
-    const providers = await getProviders();
-
-    if (!providers) {
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false,
-            },
-        }
-    }
-
-    return {
-        props: {
-            providers,
-        },
-    };
-
-}
-
 function signIn({providers}){
     return (
         <>
@@ -49,8 +27,26 @@ function signIn({providers}){
     );
 }
 
-
 //Server side 
 //export async function getServerSidedProps
+export async function getServerSideProps() {
+    const providers = await getProviders();
+
+    if (!providers) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: {
+            providers,
+        },
+    };
+
+}
 
 export default signIn;
