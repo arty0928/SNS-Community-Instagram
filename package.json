@@ -6,9 +6,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
+    "lint": "next lint"
   },
+  
   "dependencies": {
     "@faker-js/faker": "^7.5.0",
     "@headlessui/react": "^1.7.2",
