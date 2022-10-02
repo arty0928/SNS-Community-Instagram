@@ -30,7 +30,7 @@ function signIn({providers}){
 //Server side 
 //export async function getServerSidedProps
 export async function getServerSideProps() {
-    console.log("SSR");
+    
     const providers = await getProviders();
 
     if (!providers) {
