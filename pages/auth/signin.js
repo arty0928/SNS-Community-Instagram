@@ -31,7 +31,7 @@ function signIn({providers}){
 
 //Server side 
 //export async function getServerSidedProps
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const providers = await getProviders();
 
     if (!providers) {
