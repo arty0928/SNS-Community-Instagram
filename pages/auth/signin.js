@@ -4,9 +4,8 @@ import Header from "../../components/Header";
 import Image from "next/future/image";
 //Brower...
 
-export async function getStaticProps(context) {
-    const provider = await getProviders();
-    const providers = await provider.json();
+export async function getStaticProps() {
+    const providers = await getProviders();
 
     if (!providers) {
         return {
@@ -24,7 +23,6 @@ export async function getStaticProps(context) {
     };
 
 }
-
 
 function signIn({providers}){
     return (
