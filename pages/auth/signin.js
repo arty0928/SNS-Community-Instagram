@@ -5,7 +5,8 @@ import Image from "next/future/image";
 //Brower...
 
 export async function getStaticProps() {
-    const providers = await getProviders();
+    const provider = await getProviders();
+    const providers = await provider.json();
 
     if (!providers) {
         return {

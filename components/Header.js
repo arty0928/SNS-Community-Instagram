@@ -85,9 +85,12 @@ function Header() {
                                 
                             />
                         </>
-                    ) : (
-                        <button onClick={signIn}>Sign In</button>
-                    )}
+                    ) 
+                    : 
+                    (
+                        <button >Sign In</button>
+                    )
+                    }
 
 
                 </div>
