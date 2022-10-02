@@ -2,19 +2,19 @@
 //react
 import { MODERN_BROWSERSLIST_TARGET } from 'next/dist/shared/lib/constants'
 import Head from 'next/head'
-import Feed from '../../components/Feed'
-import Modal from '../../components/Modal'
-import Header from '../../components/Header'
-export default function Card1() {
+import Feed2 from '../../../components/Feed2'
+import Modal2 from '../../../components/Modal2'
+import Header from '../../../components/Header'
+export default function Card2() {
     return (
         <div className='bg-gray-50 h-screen
     overflow-y-scroll scrollbar-hide'>
 
             <Header />
 
-            <Feed />
+            <Feed2 />
 
-            <Modal />
+            <Modal2 />
 
 
         </div>

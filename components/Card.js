@@ -14,7 +14,7 @@ function Card() {
                 {/* <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">From the blog</h1> */}
 
                 <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-                    <Link href="/auth/Introduce">
+                    <Link href="/auth/components/Introduce">
                         <div className="lg:flex rounded-lg hover:bg-gray-200 " >
                             <Image className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1520453803296-c39eabe2dab4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVsbG98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="" width={500} height={224} />
 
@@ -32,7 +32,7 @@ function Card() {
                     
 
 
-                    <Link href="/auth/Study">
+                    <Link href="/auth/components/Study">
                         <div className="lg:flex rounded-lg hover:bg-gray-200" >
                             <Image className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHRlc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="" width={500} height={224} />
 
@@ -46,7 +46,7 @@ function Card() {
                         </div>
                     </Link>
 
-                    <Link href="/auth/Reading">
+                    <Link href="/auth/components/Reading">
                         <div className="lg:flex rounded-lg hover:bg-gray-200" >
                             <Image className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" width={500} height={224} />
                             <div className="flex flex-col justify-between py-6 lg:mx-6">
@@ -59,7 +59,7 @@ function Card() {
                         </div>
                     </Link>
 
-                    <Link href="/auth/Exercise">
+                    <Link href="/auth/components/Exercise">
                         <div className="lg:flex rounded-lg hover:bg-gray-200" >
                             <Image className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZXhlcmNpc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="" width={500} height={224} />
 
@@ -73,7 +73,7 @@ function Card() {
                         </div>
                     </Link>
 
-                    <Link href="/auth/News">
+                    <Link href="/auth/components/News">
                         <div className="lg:flex rounded-lg hover:bg-gray-200" >
                             <Image className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" width={500} height={224} />
 
@@ -88,7 +88,7 @@ function Card() {
                     </Link>
 
 
-                    <Link href="/auth/Hobby">
+                    <Link href="/auth/components/Hobby">
                         <div className="lg:flex rounded-lg hover:bg-gray-200" >
                             <Image className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1522410818928-5522dacd5066?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG9iYnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="" width={500} height={224} />
 
@@ -103,7 +103,7 @@ function Card() {
                     </Link>
 
 
-                    <Link href="/auth/Invest">
+                    <Link href="/auth/components/Invest">
                         <div className="lg:flex rounded-lg hover:bg-gray-200" >
                             <Image className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" width={500} height={224} />
 
