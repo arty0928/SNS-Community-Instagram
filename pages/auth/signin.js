@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import Image from "next/future/image";
 //Brower...
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
     const provider = await getProviders();
     const providers = await provider.json();
 

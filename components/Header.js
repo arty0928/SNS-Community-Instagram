@@ -88,7 +88,7 @@ function Header() {
                     ) 
                     : 
                     (
-                        <button >Sign In</button>
+                        <button onClick={signIn}>Sign In</button>
                     )
                     }
 
