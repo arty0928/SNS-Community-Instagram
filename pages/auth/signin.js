@@ -34,7 +34,9 @@ export async function getServerSideProps() {
     const providers = await getProviders();
 
     if (!providers) {
+        console.log("null");
         return {
+            
             redirect: {
                 destination: '/auth/signin',
                 permanent: false,
