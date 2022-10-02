@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "netlify-build": "next build && next export"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@faker-js/faker": "^7.5.0",
