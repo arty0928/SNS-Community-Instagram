@@ -16,7 +16,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "fake": "^0.2.2",
     "faker": "^6.6.6",
-    "firebase": "^9.10.0",
+    "firebase": "9.4.0",
     "moment": "^2.29.4",
     "next": "12.3.0",
     "next-auth": "^4.10.3",
