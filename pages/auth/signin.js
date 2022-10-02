@@ -1,4 +1,5 @@
 import {getProviders, signIn as SignIntoProvider } from "next-auth/react";
+import { GetServerSideProps } from 'next';
 import Header from "../../components/Header";
 import Image from "next/future/image";
 //Brower...
@@ -26,6 +27,7 @@ function signIn({providers}){
     </>
     );
 }
+
 
 //Server side 
 //export async function getServerSidedProps
