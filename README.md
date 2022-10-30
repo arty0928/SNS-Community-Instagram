@@ -9,6 +9,7 @@ npm run dev
 # or
 yarn dev
 ```
+check the youtube(https://youtu.be/8M6FPxrJYDU)
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
